@@ -1,0 +1,84 @@
+﻿@model PagedList.PagedList<MobileStores.Models.MTB>
+@using PagedList.Mvc
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "MTB";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quán lý Máy tính bản</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="width:200px">
+            Tên MTB: 
+        </th>
+        <th style="width:200px">
+            Giá bán: 
+        </th>
+        <th style="width:200px">
+            Chi tiết: 
+        </th>
+        <th style="width:200px">
+            Ảnh bìa: 
+        </th>
+        <th style="width:200px">
+            Số lượng còn: 
+        </th>
+        <th style="width:200px">
+            Hãng sản xuất: 
+        </th>
+        <th style="width:200px">
+            Ngày cập nhật: 
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenMTB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Truncate(item.Chitiet, 100)
+            </td>
+            <td>
+                <img src="@Url.Content("~/Content/img/user/mobiles/"+ item.AnhMTB)" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongcon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "EditMTB", new { id = item.MaMTB }) |
+                @Html.ActionLink("Chi tiết", "DetailsMTB", new { id = item.MaMTB }) |
+                @Html.ActionLink("Xóa", "DeleteMTB", new { id = item.MaMTB })
+            </td>
+        </tr>
+    }
+
+</table>
+Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="PageMenu">
+    @Html.PagedListPager(Model, page => Url.Action("Dienthoai", new { page = page }))
+</div>

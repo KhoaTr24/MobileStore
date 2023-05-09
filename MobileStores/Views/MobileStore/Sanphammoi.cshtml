@@ -1,0 +1,7 @@
+﻿@model IEnumerable<MobileStores.Models.CHUDE>
+@foreach (var item in Model)
+{
+    <a href="@Url.Action("SPtheochude","MobileStore", new {id = item.MaCD })">
+        <img src="~/Content/img/user/@item." />
+    </a>
+}

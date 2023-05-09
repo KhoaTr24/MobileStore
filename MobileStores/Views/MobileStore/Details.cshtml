@@ -1,0 +1,60 @@
+﻿@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="product-content-right">
+                <div class="product-breadcroumb">
+                    <a href="@Url.Action("Index","MobileStore")">Trang chủ</a>
+                    <a href="@Url.Action("Dienthoai","MobileStore")">Điện thoại</a>
+                    <a> @Model.TenDT</a>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="product-images">
+                            <div class="product-main-img">
+                                <img src="~/Content/img/user/mobiles/@Model.AnhDT" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="product-inner">
+                            <h2 class="product-name">
+                                @Model.TenDT
+                            </h2>
+                            <div class="product-inner-price">
+                                @Model.Giaban
+                            </div>
+                           
+                            <form action="" class="cart">
+                                <div class="quantity">
+                                    <a href="@Url.Action("AddCart","Cart", new {@iMaDT= @Model.MaDT, @strURL=Request.Url.ToString() })" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                                    
+                                </div>
+                                
+                            </form>
+                            
+                            <div role="tabpanel">
+                                <ul class="product-tab" role="tablist">
+                                    <li><h2>Chi tiết sản phẩm</h2></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                        <p>@Model.Chitiet</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

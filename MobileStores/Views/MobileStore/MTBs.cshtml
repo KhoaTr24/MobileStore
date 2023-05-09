@@ -1,0 +1,20 @@
+﻿@foreach (var mtb in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("DetailsMTB", "MobileStore", new {id = mtb.MaMTB})">
+                <img alt="@mtb.TenMTB" src="~/Content/img/user/MTB/@mtb.AnhMTB" width="200" />
+
+                <div>
+                    <br />
+                    <h4>@mtb.TenMTB</h4>
+                    <h4>Giá tiền: @mtb.Giaban</h4>
+                    <h4>Còn lại: @mtb.Soluongcon</h4>
+                    <a href="@Url.Action("AddCart","Cart", new {@iMaDT= mtb.MaMTB, @strURL=Request.Url.ToString()})" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm giỏ hàng</a>
+                    <a href="@Url.Action("DetailsMTB","MobileStore", new {id=mtb.MaMTB})" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+                    <p></p>
+                </div>
+            </a>
+        </div>
+    </div>
+}

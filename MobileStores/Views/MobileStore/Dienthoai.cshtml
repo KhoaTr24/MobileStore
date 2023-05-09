@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Dienthoai";
+    Layout = "~/Views/Shared/_LayoutSanpham.cshtml";
+}
+
+@foreach (var dienthoai in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("Details", "MobileStore", new {id = dienthoai.MaDT})">
+                <img alt="@dienthoai.TenDT" src="~/Content/img/user/mobiles/@dienthoai.AnhDT" width="200"/>
+                <div>
+                    <br />
+                    <h4>@dienthoai.TenDT</h4>
+                    <h4>Giá tiền: @dienthoai.Giaban</h4>
+                    <h4>Còn lại: @dienthoai.Soluongcon</h4>
+                    <a href="@Url.Action("AddCart","Cart", new {@iMaDT= dienthoai.MaDT, @strURL=Request.Url.ToString()})" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</a>
+                    <a href="@Url.Action("Details","MobileStore", new {id=dienthoai.MaDT})" class="view-details-link"><i class="fa fa-link"></i> Chi tiết</a>
+                    <p></p>
+                </div>
+            </a>
+
+        </div>
+    </div>
+}
+

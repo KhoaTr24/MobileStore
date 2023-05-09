@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "DetailsMTB";
+    Layout = "~/Views/Shared/_LayoutDetail.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="product-content-right">
+                <div class="product-breadcroumb">
+                    <a href="https://localhost:44337/">Trang chủ</a>
+                    <a href="https://localhost:44337/MobileStore/DienThoai">Điện thoại</a>
+                    <a> @Model.TenMTB</a>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="product-images">
+                            <div class="product-main-img">
+                                <img src="~/Content/img/user/MTB/@Model.AnhMTB" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="product-inner">
+                            <h2 class="product-name">
+                                @Model.TenMTB
+                            </h2>
+                            <div class="product-inner-price">
+                                @Model.Giaban
+                            </div>
+
+                            <form action="" class="cart">
+                                <div class="quantity">
+                                    <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                </div>
+                                <button class="add_to_cart_button" type="submit">Thêm vào giỏ</button>
+                            </form>
+                            <div role="tabpanel">
+                                <ul class="product-tab" role="tablist">
+                                    <li><h2>Chi tiết sản phẩm</h2></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                        <p>@Model.Chitiet</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+

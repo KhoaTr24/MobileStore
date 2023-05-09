@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MobileStore-Demo</title>
+
+    <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,100' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Content/owl.carousel.css" rel="stylesheet">
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="~/Scripts/tinymce/tiny_mce.js"></script>
+    <script>tinymce.init({ selector: 'textarea' });</script>
+</head>
+<body>
+    <div>
+        <div class="mainmenu-area">
+            <div class="container">
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+                            <li><a href="@Url.Action("index")">trang chủ</a></li>
+                            <li>
+                                <a class="nav-link" href="@Url.Action("dienthoai","admin")">Quản lý điện thoại</a>
+                            </li>
+                            <li><a class="nav-link" href="donhang.html">đơn hàng</a></li>
+                            <li><a class="nav-link" href="#">tài khoản khách hàng</a></li>
+                            <li><a class="nav-link" href="@Url.Action("logout", "admin")"> Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end mainmenu area -->
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Latest jQuery form server -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <!-- Bootstrap JS form CDN -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- jQuery sticky menu -->
+    <script src="~/Scripts/owl.carousel.min.js"></script>
+    <script src="~/Scripts/jquery.sticky.js"></script>
+
+    <!-- jQuery easing -->
+    <script src="~/Scripts/jquery.easing.1.3.min.js"></script>
+
+    <!-- Main Script -->
+    <script src="~/Scripts/main.js"></script>
+
+    <!-- Slider -->
+    <script type="text/javascript" src="~/Scripts/bxslider.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/script.slider.js"></script>
+</body>
+</html>

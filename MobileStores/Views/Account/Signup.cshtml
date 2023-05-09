@@ -1,0 +1,65 @@
+﻿
+@{
+    ViewBag.Title = "Signup";
+    Layout = "~/Views/Shared/_LayoutSignup.cshtml";
+}
+<div class="Signup">
+    <div class="container">
+                <header>Đăng ký</header>
+             <div class="form-outer">
+            @using (Html.BeginForm())
+            {
+
+                 <div class="page slide-page">
+                     <div class="title">Nhập Thông Tin:</div>
+                     @Html.ValidationSummary(true)
+                     <div class="field">
+                         <p>Họ và tên:</p>
+                         @Html.TextBox("HotenKH")
+                         @ViewData["Loi1"]
+                     </div>
+                     <div class="field">
+                         <p>Địa chỉ Email:</p>
+                         @Html.TextBox("Email")
+                         @ViewData["Loi2"]
+                     </div>
+                     <div class="field">
+                         <p style="text-align:center">Tên Đăng Nhập:</p>
+
+                         @Html.TextBox("TenDN")
+                         @ViewData["Loi3"]
+                     </div>
+                     <div class="field">
+                         <p style="text-align:center">Mật Khẩu:</p>
+                         @Html.TextBox("Matkhau")
+                         @ViewData["Loi4"]
+                     </div>
+                     <div class="field">
+                         <p style="text-align:center">Nhập lại Mật Khẩu:</p>
+                         @Html.TextBox("Nlmatkhau")
+                         @ViewData["Loi5"]
+                     </div>
+                     <div class="field">
+                         <p style="text-align:center">Số điện thoại:</p>
+                         @Html.TextBox("Dienthoai")
+                         @ViewData["Loi6"]
+                     </div>
+                     <div class="field">
+                         <p style="text-align:center">Địa chỉ:</p>
+                         @Html.TextBox("Diachi")
+                         @ViewData["Loi7"]
+                     </div>
+                     <div class="field">
+                         <p style="text-align:center">Ngày sinh:</p>
+                         <input type="date" name="Ngaysinh" />
+                     </div>
+
+                     <input type="Submit" value="Signup" />
+                 </div>
+            }
+
+        </div>
+    </div>
+        </div>
+
+

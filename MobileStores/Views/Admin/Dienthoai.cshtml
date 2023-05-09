@@ -1,0 +1,82 @@
+﻿
+@model PagedList.PagedList<MobileStores.Models.DIENTHOAI> 
+@using PagedList.Mvc
+
+@helper Truncate(string input, int length) {
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+    }
+
+@{
+    ViewBag.Title = "Quản lý điện thoại";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý điện thoại</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateNew")
+</p>
+
+<table class="table">
+    <tr>
+        <th style="width:200px"> Tên điện thoại
+        </th>
+        <th style="width:200px"> Giá bán
+        </th>
+        <th style="width:200px"> Chi tiết
+        </th>
+        <th style="width:200px"> Ảnh bìa
+        </th>
+        <th style="width:200px"> Số lượng còn
+        </th>
+        <th style="width:200px"> Hãng sản xuất
+        </th>
+        <th style="width:200px"> Ngày cập nhật
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Giaban)
+        </td>
+        <td>
+            @Truncate(item.Chitiet, 100)
+        </td>
+        <td>
+            <img src="@Url.Content("~/Content/img/user/mobiles/"+ item.AnhDT)" style="height:150px"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soluongcon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHUDE.TenChuDe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+        </td>
+        <td>
+            @Html.ActionLink("Sửa", "Edit", new { id=item.MaDT }) |
+            @Html.ActionLink("Chi tiết", "Details", new { id=item.MaDT }) |
+            @Html.ActionLink("Xóa", "Delete", new { id=item.MaDT })
+        </td>
+    </tr>
+}
+
+</table>
+Page @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+<div class="PageMenu">
+    @Html.PagedListPager(Model, page=>Url.Action("Dienthoai", new { page = page}))
+</div>
+

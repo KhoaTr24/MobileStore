@@ -1,0 +1,76 @@
+﻿@model MobileStores.Models.DIENTHOAI
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DIENTHOAI</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenDT)
+        </dd>
+
+        <dt>
+            Giá bán:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giaban)
+        </dd>
+
+        <dt>
+            Chi tiết điện thoại:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chitiet)
+        </dd>
+
+        <dt>
+            Ảnh điện thoại:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Content/img/user/mobiles"+ Model.AnhDT)" width="150px"/>
+        </dd>
+
+        <dt>
+            Số lượng còn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongcon)
+        </dd>
+
+        <dt>
+            Hãng sản xuât:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaCD)
+        </dd>
+
+        <dt>
+            Ngày cập nhật:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaycapnhat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaDT })|
+    @Html.ActionLink("Xóa", "Delete", new { id = Model.MaDT })|
+    @Html.ActionLink("Quay về", "Dienthoai")
+</p>

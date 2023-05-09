@@ -1,0 +1,53 @@
+﻿@using MobileStores.Models
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_LayoutOrder.cshtml";
+}
+
+<div class="col-md-12">
+    <div class="product-cart">
+        <table cellspacing="0" class="shop_table cart" border="1">
+
+            <tr>
+                <td> Mã Điện Thoại</td>
+                <td> Tên Điện Thoại</td>
+                <td> Ảnh Điện Thoại</td>
+                <td> Số Lượng</td>
+                <td> Giá Bán</td>
+                <td> Thành Tiền</td>
+            </tr>
+
+
+            @foreach (var item in Model)
+            {
+                <tr style="text-align:center;font-weight:bold">
+                    <td>@item.iMaDT</td>
+                    <td><a href="@Url.Action("Details", "MobileStore", new { id = item.iMaDT })">@item.sTenDT</a></td>
+                    <td><img src="~/Content/img/user/mobiles/@item.sAnhDT" /></td>
+                    @using (Html.BeginForm("CartUpd", "Cart", new { @iMaSP = item.iMaDT }))
+                    {
+                        <td>
+                            @item.iSoluong
+                        </td>
+                        <td>@String.Format("{0:0,0}", item.dGiaban)</td>
+                        <td>@String.Format("{0:0,0}", item.dThanhtien)</td>
+                    }
+                </tr>
+            }
+            <tr style="font-weight:bold; text-align:right;color:red">
+                <td colspan="4">Tổng Số lượng: @ViewBag.Tongsoluong</td>
+                <td colspan="3">Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VND</td>
+            </tr>
+ 
+    @{KHACHHANG kh = (KHACHHANG)Session["Account"];}
+    @using (Html.BeginForm())
+    {
+        <tr style="font-weight:bold; text-align:right;color:red">
+            <td colspan="7"><input type="submit" value="Thanh toán"></td>
+        </tr>
+    }
+
+    </table>
+
+</div>
+</div>

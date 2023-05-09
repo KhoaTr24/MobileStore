@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "SPTheochude";
+    Layout = "~/Views/Shared/_LayoutSPCD.cshtml";
+}
+
+@foreach (var dienthoai in Model)
+{
+    <div class="col-sm-4 col-lg-4 col-md-4">
+        <div class="thumbnail">
+            <a href="@Url.Action("Details", "MobileStore", new {id = dienthoai.MaDT})">
+                <img alt="@dienthoai.TenDT" src="~/Content/img/user/mobiles/@dienthoai.AnhDT" width="200" />
+                <div>
+                    <br />
+                    <h4>@dienthoai.TenDT</h4>
+                    <h4>Giá tiền: @dienthoai.Giaban</h4>
+                    <h4>Còn lại: @dienthoai.Soluongcon</h4>
+                    <p></p>
+                </div>
+            </a>
+        </div>
+    </div>
+}
+
